@@ -1,9 +1,8 @@
-SRCS	= src/utils/error.c \
-		src/main.c
+SRCS	= check_args.c ft_lstnew.c ft_lstadd_back.c main.c split.c
 OBJS	= $(SRCS:.c=.o)
 CC		= cc
 RM		= rm -f
-CFLAGS	= -Wall -Wextra -Werror -I include
+CFLAGS	= -Wall -Wextra -Werror 
 
 NAME	= push_swap
 

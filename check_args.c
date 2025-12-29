@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chabourk <chabourk@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 16:34:28 by chabourk          #+#    #+#             */
-/*   Updated: 2025/12/28 15:12:33 by chabourk         ###   ########.fr       */
+/*   Updated: 2025/12/29 00:59:02 by chabourk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,23 @@ void error(void)
 	write(2, "Error\n", 6);
 	exit(1);
 }
-int check_int(char *str)
+
+int deblucate(t_list **list, long n)
+{
+	if(!list)
+		return 0;
+	t_list *tmp = *list;
+	while(tmp)
+	{
+		if(tmp->value == (int)n)
+		{
+			error();
+		}
+		tmp = tmp->next;
+	}
+	return 0;
+}
+int check_number(char *str)
 {
 	int i = 0;
 	if(!str[i])

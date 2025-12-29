@@ -6,7 +6,7 @@
 /*   By: chabourk <chabourk@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 18:00:30 by chabourk          #+#    #+#             */
-/*   Updated: 2025/12/26 19:37:51 by chabourk         ###   ########.fr       */
+/*   Updated: 2025/12/29 15:11:04 by chabourk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	**splited_fill(char **splited, char *str, char sep)
 		end = i;
 		splited[j] = malloc((end - start) + 1);
 		if (!splited[j])
-			free_splited(splited, j);
+			return (free_splited(splited, j));
 		split_copy(splited, str, start, end, j);
 		j++;
 	}
@@ -96,19 +96,4 @@ char	**split(char *str, char sep)
 	if (!splited_str)
 		return (NULL);
 	return (splited_str);
-}
-int	main(void)
-{
-	char	**str;
-	int		i;
-
-	str = split(" chi choo bii", ' ');
-	i = 0;
-	while (str[i])
-	{
-		printf("%s\n", str[i]);
-		free(str[i]);
-		i++;
-	}
-	free(str);
 }
