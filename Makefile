@@ -1,4 +1,4 @@
-SRCS	= check_args.c ft_lstnew.c ft_lstadd_back.c main.c split.c
+SRCS	= check_args.c stack_build.c main.c split.c stack_free.c
 OBJS	= $(SRCS:.c=.o)
 CC		= cc
 RM		= rm -f

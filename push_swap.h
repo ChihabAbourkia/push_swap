@@ -6,7 +6,7 @@
 /*   By: chabourk <chabourk@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 17:32:23 by chabourk          #+#    #+#             */
-/*   Updated: 2025/12/29 00:48:23 by chabourk         ###   ########.fr       */
+/*   Updated: 2025/12/30 19:46:49 by chabourk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,9 @@ int check_number(char *str);
 long ft_atol(char *str);
 void ft_lstadd_back(t_list **lst, t_list *new);
 int deblucate(t_list **list, long n);
+void free_split(char **str);
+void lstclear(t_list **lst);
+void error_free(t_list **head, char **results);
+void chek_args( t_list **head, char **results);
 
 #endif

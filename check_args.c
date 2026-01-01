@@ -6,7 +6,7 @@
 /*   By: chabourk <chabourk@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 16:34:28 by chabourk          #+#    #+#             */
-/*   Updated: 2025/12/29 00:59:02 by chabourk         ###   ########.fr       */
+/*   Updated: 2025/12/30 19:46:34 by chabourk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,33 +18,35 @@ void error(void)
 	exit(1);
 }
 
-int deblucate(t_list **list, long n)
+int deblucate(t_list **lst, long n)
 {
-	if(!list)
-		return 0;
-	t_list *tmp = *list;
+	if(!lst)
+	{
+		return 1;
+	}
+	t_list *tmp = *lst;
 	while(tmp)
 	{
 		if(tmp->value == (int)n)
 		{
-			error();
+			return 0;
 		}
 		tmp = tmp->next;
 	}
-	return 0;
+	return 1;
 }
 int check_number(char *str)
 {
 	int i = 0;
 	if(!str[i])
-		error();
+		return 0;
 	if((str[i] == '-' ||str[i] == '+')&&(str[i+1] >= '0' && str[i+1] <= '9'))
 		i++;
 	while(str[i])
 	{
 		if(!(str[i] >= '0' && str[i] <= '9'))
 		{
-			error();
+			return 0;
 		}
 		i++;
 	}
@@ -70,8 +72,21 @@ long ft_atol(char *str)
 		i++;
 	}
 	long results = r * s;
-	if(!(results >= -2147483648 && results <= 2147483647))
-		error();
 	return results;
-
+}
+void chek_args( t_list **head, char **results)
+{
+		int j = 0;
+        while(results[j])
+        {
+            if (!check_number(results[j]))
+                error_free(head, results);
+            long n = atol(results[j]);
+            if(!(n >= -2147483648 && n <= 2147483647))
+                 error_free(head, results);
+            if(!deblucate(head, n))
+                error_free(head, results);
+            ft_lstadd_back(head, ft_lsnew(n));
+             j++;    
+        }
 }

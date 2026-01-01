@@ -6,7 +6,7 @@
 /*   By: chabourk <chabourk@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 18:00:30 by chabourk          #+#    #+#             */
-/*   Updated: 2025/12/29 15:11:04 by chabourk         ###   ########.fr       */
+/*   Updated: 2025/12/29 18:32:27 by chabourk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,10 @@ char	**splited_fill(char **splited, char *str, char sep)
 	j = 0;
 	while (str[i])
 	{
-		while (str[i] == sep && str[i] != '\0')
+		while (str[i] == sep)
 			i++;
+		if (!str[i])
+			break;
 		start = i;
 		while (str[i] != sep && str[i])
 			i++;
