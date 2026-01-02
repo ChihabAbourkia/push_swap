@@ -6,7 +6,7 @@
 /*   By: chabourk <chabourk@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 17:18:52 by chabourk          #+#    #+#             */
-/*   Updated: 2025/12/31 18:00:15 by chabourk         ###   ########.fr       */
+/*   Updated: 2026/01/02 17:37:45 by chabourk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,14 @@ void ft_lstadd_back(t_list **lst, t_list *new)
         tmp = tmp->next;
     }
     tmp->next = new;
+}
+int stack_size(t_list *lst)
+{
+    int count = 0;
+    while(lst)
+    {
+        count ++;
+        lst = lst->next;
+    }
+    return count;
 }

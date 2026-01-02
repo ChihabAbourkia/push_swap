@@ -6,7 +6,7 @@
 /*   By: chabourk <chabourk@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 18:25:30 by chabourk          #+#    #+#             */
-/*   Updated: 2025/12/31 17:59:10 by chabourk         ###   ########.fr       */
+/*   Updated: 2026/01/02 18:09:27 by chabourk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int main(int argc, char **argv)
         free_split(results);
         i++;
     }
+    if(stack_size(head) == 3)
+        sort_three(&head);
     t_list *tmp = head;
     while(tmp)
     {

@@ -6,7 +6,7 @@
 /*   By: chabourk <chabourk@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 17:51:07 by chabourk          #+#    #+#             */
-/*   Updated: 2025/12/31 17:46:56 by chabourk         ###   ########.fr       */
+/*   Updated: 2026/01/01 21:57:56 by chabourk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,3 @@ void error_free(t_list **head, char **results)
     lstclear(head);
     error();
 }
-1 2 3 4 4

@@ -6,7 +6,7 @@
 /*   By: chabourk <chabourk@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 17:32:23 by chabourk          #+#    #+#             */
-/*   Updated: 2025/12/30 19:46:49 by chabourk         ###   ########.fr       */
+/*   Updated: 2026/01/02 17:34:24 by chabourk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,14 @@ void free_split(char **str);
 void lstclear(t_list **lst);
 void error_free(t_list **head, char **results);
 void chek_args( t_list **head, char **results);
-
+void sa(t_list **lst);
+void sb(t_list **lst);
+void pa(t_list **stack_a , t_list **stack_b);
+void pb(t_list **stack_a , t_list **stack_b);
+void ra(t_list **stack_a);
+void rb(t_list **stack_b);
+void rra(t_list **stack_a);
+void rrb(t_list **stack_b);
+void sort_three(t_list **lst);
+int stack_size(t_list *lst);
 #endif
