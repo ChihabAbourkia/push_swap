@@ -6,12 +6,30 @@
 /*   By: chabourk <chabourk@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 16:34:28 by chabourk          #+#    #+#             */
-/*   Updated: 2025/12/30 19:46:34 by chabourk         ###   ########.fr       */
+/*   Updated: 2026/01/04 18:05:53 by chabourk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 #include<stdio.h>
+int only_space(char **str)
+{
+	int i = 0;
+	while(str[i])
+	{
+		int j = 0;
+		while(str[i][j])
+		{
+			if(str[i][j] != ' ')
+			{
+				return 1;
+			}
+			j++;
+		}
+		i++;
+	}
+	return 0;
+}
 void error(void)
 {
 	write(2, "Error\n", 6);
@@ -77,6 +95,8 @@ long ft_atol(char *str)
 void chek_args( t_list **head, char **results)
 {
 		int j = 0;
+		if(!only_space(results))
+			error_free(head, results);
         while(results[j])
         {
             if (!check_number(results[j]))

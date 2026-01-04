@@ -6,12 +6,12 @@
 /*   By: chabourk <chabourk@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 21:24:49 by chabourk          #+#    #+#             */
-/*   Updated: 2026/01/02 18:15:18 by chabourk         ###   ########.fr       */
+/*   Updated: 2026/01/04 20:59:18 by chabourk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
-int int_max(t_list *lst)
+int stack_max(t_list *lst)
 {
     int max = lst->value;
     while(lst)
@@ -22,21 +22,151 @@ int int_max(t_list *lst)
     }
     return max;
 }
+int stack_min(t_list *lst)
+{
+    int min = lst->value;
+    while(lst)
+    {
+        if(lst->value < min)
+            min = lst->value;
+        lst = lst->next;   
+    }
+    return min;
+}
+int min_index(t_list *lst, int min)
+{
+    int count = 0;
+    while(lst->value != min)
+    {
+        count++;
+        lst = lst->next;
+    }
+    return count;
+}
+void pb_three_pa(t_list **lst, t_list **stack_b)
+{
+    print_pb(lst , stack_b);
+    sort_three(lst);
+    print_pa(lst, stack_b);
+}
+void ra_pb_three_pa(t_list **lst, t_list **stack_b)
+{
+    print_ra(lst);
+    print_pb(lst , stack_b);
+    sort_three(lst);
+    print_pa(lst, stack_b);
+}
+void ra_ra_pb_three_pa(t_list **lst, t_list **stack_b)
+{
+    print_ra(lst);
+    print_ra(lst);
+    print_pb(lst , stack_b);
+    sort_three(lst);
+    print_pa(lst, stack_b);
+}
+void rra_pb_three_pa(t_list **lst, t_list **stack_b)
+{
+    print_rra(lst);
+    print_pb(lst , stack_b);
+    sort_three(lst);
+    print_pa(lst, stack_b);
+}
+void pb_foor_pa(t_list **lst, t_list **stack_b)
+{
+    print_pb(lst , stack_b);
+    sort_foor(lst);
+    print_pa(lst, stack_b);
+}
+void ra_pb_foor_pa(t_list **lst, t_list **stack_b)
+{
+    print_ra(lst);
+    print_pb(lst , stack_b);
+    sort_foor(lst);
+    print_pa(lst, stack_b);
+}
+void ra_ra_pb_foor_pa(t_list **lst, t_list **stack_b)
+{
+    print_ra(lst);
+    print_ra(lst);
+    print_pb(lst , stack_b);
+    sort_foor(lst);
+    print_pa(lst, stack_b);
+}
+void rra_rra_pb_foor_pa(t_list **lst, t_list **stack_b)
+{
+    print_rra(lst);
+    print_rra(lst);
+    print_pb(lst , stack_b);
+    sort_foor(lst);
+    print_pa(lst, stack_b);
+}
+void rra_pb_foor_pa(t_list **lst, t_list **stack_b)
+{
+    print_rra(lst);
+    print_pb(lst , stack_b);
+    sort_foor(lst);
+    print_pa(lst, stack_b);
+}
+void sort_two(t_list **list)
+{
+    t_list *tmp = *lst;
+    while(tmp)
+    {
+        if(tmp->value > tmp->next->value)
+        {
+            print_sa(list);
+        }
+        tmp = tmp->next;
+    }
+}
 void sort_three(t_list **lst)
 {
-    if(!lst ||!*lst || !(*lst)->next)
-        return;
-    int max  = int_max(*lst);
+    int max  = stack_max(*lst);
     if((*lst)->value == max)
-        ra(lst);
+        print_ra(lst);
     else if((*lst)->next->value == max)
-        rra(lst);
+        print_rra(lst);
     if((*lst)->value > (*lst)->next->value)
-        sa(lst);
+        print_sa(lst);
 }
-// void sort_foor(t_list **lst)
-// {
-//      if(!lst ||!*lst || !(*lst)->next)
-//         return;
-    
-// }
+void sort_three(t_list **lst)
+{
+    int max  = stack_max(*lst);
+    if((*lst)->value == max)
+        print_ra(lst);
+    else if((*lst)->next->value == max)
+        print_rra(lst);
+    if((*lst)->value > (*lst)->next->value)
+        print_sa(lst);
+}
+void sort_foor(t_list **lst)
+{
+    t_list *stack_b = NULL;
+    int min = stack_min(*lst);
+    int index = min_index(*lst, min);
+    if(index == 0)
+        pb_three_pa(lst, &stack_b);
+    else if(index == 1)
+        ra_pb_three_pa(lst, &stack_b);
+    else if(index == 2)   
+        ra_ra_pb_three_pa(lst, &stack_b);
+    else if(index == 3)  
+        rra_pb_three_pa(lst, &stack_b);
+}
+void sort_five(t_list **lst)
+{
+    t_list *stack_b = NULL;
+    int min = stack_min(*lst);
+    int index = min_index(*lst, min);
+    if(index == 0)
+        pb_foor_pa(lst, &stack_b);
+    else if(index == 1)
+        ra_pb_foor_pa(lst, &stack_b);
+    else if(index == 2)
+        ra_ra_pb_foor_pa(lst, &stack_b);
+    else if(index == 3)
+        rra_rra_pb_foor_pa(lst, &stack_b);
+    else if(index == 4)
+        rra_pb_foor_pa(lst, &stack_b);
+}
+

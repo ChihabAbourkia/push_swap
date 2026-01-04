@@ -6,7 +6,7 @@
 /*   By: chabourk <chabourk@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 17:32:23 by chabourk          #+#    #+#             */
-/*   Updated: 2026/01/02 17:34:24 by chabourk         ###   ########.fr       */
+/*   Updated: 2026/01/04 21:01:21 by chabourk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,15 @@ void rra(t_list **stack_a);
 void rrb(t_list **stack_b);
 void sort_three(t_list **lst);
 int stack_size(t_list *lst);
+void sort_foor(t_list **lst);
+void sort_five(t_list **lst);
+void print_sa(t_list **lst);
+void print_sb(t_list **lst);
+void print_pa(t_list **stack_a , t_list **stack_b);
+void print_pb(t_list **stack_a , t_list **stack_b);
+void print_ra(t_list **stack_a);
+void print_rb(t_list **stack_b);
+void print_rra(t_list **stack_a);
+void print_rrb(t_list **stack_b);
+void sort_two(t_list **list);
 #endif

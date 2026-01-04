@@ -6,7 +6,7 @@
 /*   By: chabourk <chabourk@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 14:41:37 by chabourk          #+#    #+#             */
-/*   Updated: 2026/01/01 18:37:46 by chabourk         ###   ########.fr       */
+/*   Updated: 2026/01/04 15:34:27 by chabourk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,4 +120,44 @@ void rrb(t_list **stack_b)
     bfl->next = NULL;
     last->next = *stack_b;
     *stack_b = last;
+}
+void print_sa(t_list **lst)
+{
+    sa(lst);
+    write(1, "sa\n", 3);
+}
+void print_sb(t_list **lst)
+{
+    sb(lst);
+    write(1, "sb\n", 3);
+}
+void print_pa(t_list **stack_a , t_list **stack_b)
+{
+    pa(stack_a ,stack_b);
+    write(1, "pa\n", 3);
+}
+void print_pb(t_list **stack_a , t_list **stack_b)
+{
+    pb(stack_a ,stack_b);
+    write(1, "pb\n", 3);
+}
+void print_ra(t_list **stack_a)
+{
+    ra(stack_a);
+    write(1, "ra\n", 3);
+}
+void print_rb(t_list **stack_b)
+{
+    rb(stack_b);
+    write(1, "rb\n", 3);
+}
+void print_rra(t_list **stack_a)
+{
+    rra(stack_a);
+    write(1,"rra\n", 4);
+}
+void print_rrb(t_list **stack_b)
+{
+    rrb(stack_b);
+    write(1,"rrb\n", 4);
 }
