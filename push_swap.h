@@ -6,7 +6,7 @@
 /*   By: chabourk <chabourk@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 17:32:23 by chabourk          #+#    #+#             */
-/*   Updated: 2026/01/04 21:01:21 by chabourk         ###   ########.fr       */
+/*   Updated: 2026/01/04 21:44:05 by chabourk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,5 @@ void print_rb(t_list **stack_b);
 void print_rra(t_list **stack_a);
 void print_rrb(t_list **stack_b);
 void sort_two(t_list **list);
+int is_sorted(t_list *lst);
 #endif

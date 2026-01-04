@@ -2,7 +2,7 @@ SRCS	= check_args.c stack_build.c main.c split.c stack_free.c operation.c sort.c
 OBJS	= $(SRCS:.c=.o)
 CC		= cc
 RM		= rm -f
-CFLAGS	= -Wall -Wextra -Werror 
+CFLAGS	= -g -Wall -Wextra -Werror 
 
 NAME	= push_swap
 

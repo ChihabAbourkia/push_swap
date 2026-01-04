@@ -6,7 +6,7 @@
 /*   By: chabourk <chabourk@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 21:24:49 by chabourk          #+#    #+#             */
-/*   Updated: 2026/01/04 20:59:18 by chabourk         ###   ########.fr       */
+/*   Updated: 2026/01/04 21:52:07 by chabourk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,19 @@ int min_index(t_list *lst, int min)
     }
     return count;
 }
+int is_sorted(t_list *lst)
+{
+    while(lst->next)
+    {
+        if(lst->value > lst->next->value)
+        {
+            return 0;
+        }
+        lst = lst->next;
+    }
+    return 1;
+}
+    
 void pb_three_pa(t_list **lst, t_list **stack_b)
 {
     print_pb(lst , stack_b);
@@ -107,27 +120,12 @@ void rra_pb_foor_pa(t_list **lst, t_list **stack_b)
     sort_foor(lst);
     print_pa(lst, stack_b);
 }
-void sort_two(t_list **list)
+void sort_two(t_list **lst)
 {
-    t_list *tmp = *lst;
-    while(tmp)
-    {
-        if(tmp->value > tmp->next->value)
+        if((*lst)->value > (*lst)->next->value)
         {
-            print_sa(list);
+            print_sa(lst);
         }
-        tmp = tmp->next;
-    }
-}
-void sort_three(t_list **lst)
-{
-    int max  = stack_max(*lst);
-    if((*lst)->value == max)
-        print_ra(lst);
-    else if((*lst)->next->value == max)
-        print_rra(lst);
-    if((*lst)->value > (*lst)->next->value)
-        print_sa(lst);
 }
 void sort_three(t_list **lst)
 {
