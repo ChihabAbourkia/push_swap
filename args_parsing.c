@@ -1,54 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_free.c                                       :+:      :+:    :+:   */
+/*   args_parsing.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chabourk <chabourk@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/29 17:51:07 by chabourk          #+#    #+#             */
-/*   Updated: 2026/01/15 17:03:03 by chabourk         ###   ########.fr       */
+/*   Created: 2026/01/14 11:38:06 by chabourk          #+#    #+#             */
+/*   Updated: 2026/01/15 17:07:05 by chabourk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_split(char **str)
+int	parsing_args(char **argv, int argc, t_list **stack_a)
 {
-	int	i;
+	int		i;
+	char	**results;
 
-	i = 0;
-	while (str[i])
+	i = 1;
+	if (argc < 2)
+		return (0);
+	while (i < argc)
 	{
-		free(str[i]);
+		results = split(argv[i], ' ');
+		chek_args(stack_a, results);
+		free_split(results);
 		i++;
 	}
-	free(str);
-}
-
-void	error(void)
-{
-	write(2, "Error\n", 6);
-	exit(1);
-}
-
-void	lstclear(t_list **lst)
-{
-	t_list	*tmp;
-
-	if (!lst || !*lst)
-		return ;
-	while (*lst)
-	{
-		tmp = (*lst)->next;
-		free(*lst);
-		*lst = tmp;
-	}
-	lst = NULL;
-}
-
-void	error_free(t_list **head, char **results)
-{
-	free_split(results);
-	lstclear(head);
-	error();
+	return (1);
 }

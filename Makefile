@@ -1,6 +1,7 @@
-SRCS	= check_args.c stack_build.c main.c split.c \
-stack_free.c  big_algo.c small_sort.c\
-retate.c reverse_retate.c swap.c push.c sort_utils.c
+SRCS	= parsing_utils.c stack_build.c main.c split.c \
+stack_free.c  big_sort.c small_sort.c \
+retate.c reverse_retate.c swap.c push.c sort_utils.c\
+args_parsing.c
 
 OBJS	= $(SRCS:.c=.o)
 CC		= cc

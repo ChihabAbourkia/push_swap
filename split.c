@@ -6,7 +6,7 @@
 /*   By: chabourk <chabourk@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 18:00:30 by chabourk          #+#    #+#             */
-/*   Updated: 2026/01/04 16:44:17 by chabourk         ###   ########.fr       */
+/*   Updated: 2026/01/15 16:58:18 by chabourk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	count_words(char *str, char sep)
 	}
 	return (count);
 }
+
 char	**free_splited(char **splited, int j)
 {
 	int	i;
@@ -43,17 +44,23 @@ char	**free_splited(char **splited, int j)
 	free(splited);
 	return (NULL);
 }
-void	split_copy(char **splited, char *str, int start, int end, int j)
-{
-	int	n;
 
-	n = 0;
-	while (start < end)
+char	*split_dup(char *str, int start, int len)
+{
+	int		i;
+	char	*splited;
+
+	i = 0;
+	splited = malloc(len + 1);
+	while (i < len)
 	{
-		splited[j][n++] = str[start++];
+		splited[i] = str[i + start];
+		i++;
 	}
-	splited[j][n] = '\0';
+	splited[i] = '\0';
+	return (splited);
 }
+
 char	**splited_fill(char **splited, char *str, char sep)
 {
 	int	i;
@@ -68,20 +75,20 @@ char	**splited_fill(char **splited, char *str, char sep)
 		while (str[i] == sep)
 			i++;
 		if (!str[i])
-			break;
+			break ;
 		start = i;
 		while (str[i] != sep && str[i])
 			i++;
 		end = i;
-		splited[j] = malloc((end - start) + 1);
+		splited[j] = split_dup(str, start, (end - start));
 		if (!splited[j])
 			return (free_splited(splited, j));
-		split_copy(splited, str, start, end, j);
 		j++;
 	}
 	splited[j] = NULL;
 	return (splited);
 }
+
 char	**split(char *str, char sep)
 {
 	int		words_count;
